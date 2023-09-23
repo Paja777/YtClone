@@ -1,13 +1,15 @@
-import React from "react";
-
 import { Paper, IconButton} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
+  const [inputValue, setinputValue] = useState('');
+  const navigate = useNavigate();
   return (
     <Paper
       component="form"
-      onSubmit={() => {}}
+      onSubmit={() => {navigate(`/search/${inputValue}`)}}
       sx={{
         borderRadius: 20,
         border: "1px solid #e3e3e3",
@@ -19,9 +21,9 @@ const SearchBar = () => {
     <input
       className="search-bar"
       placeholder="Search..."
-      value=""
+      value={inputValue}
 
-      onChange={() => {}}
+      onChange={(e) => {setinputValue(e.target.value)}}
     />
     <IconButton>
         <SearchIcon />

@@ -4,8 +4,11 @@ import ChannelCard from './ChannelCard';
 import React from 'react'
 
 const Videos = ({videos}) => {
-  console.log(videos);
+
+  if (!videos) return "...Loading";
+  
   const channelItems = videos.filter((item) => item.id.channelId);
+  
   const videoItems = videos.filter((item) => !item.id.channelId);
 
   return (
@@ -13,8 +16,8 @@ const Videos = ({videos}) => {
       {/* Render items with channelId first */}
       {channelItems.map((item, index) => (
         <Box key={index}>
-          <ChannelCard channelDetail={item} />
-        </Box>
+          <ChannelCard channelDetail={item} /> 
+        </Box> 
       ))}
 
       {/* Then render other items without channelId */}
