@@ -7,7 +7,7 @@ const SearchBar = () => {
   const [inputValue, setinputValue] = useState('');
   const navigate = useNavigate();
   return (
-    <Paper
+    <Paper 
       component="form"
       onSubmit={() => {navigate(`/search/${inputValue}`)}}
       sx={{

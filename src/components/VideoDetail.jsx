@@ -14,7 +14,8 @@ const VideoDetail = () => {
 
   
   // const {title} = video;
-  // console.log(video)
+  // console.log(video);
+  
   useEffect(() => {
     fetchFromAPI(`videos?part=contentDetails&id=${id}`).then((data) =>
       setVideo(data.items[0])
